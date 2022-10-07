@@ -6,7 +6,7 @@ This protocol uses the OT2 to conduct a Bradford Assay on a sample of protein of
 
 Rough outline of steps:
 
-1. Opentrons:
+### Opentrons:
 
  1. Prepares a series of dilutions from protein sample.
 
@@ -15,14 +15,15 @@ Rough outline of steps:
  3. Plates 10ul of the dilutions a 96 well plate with serial dilutions of BSA standard.
 
 
-2. Plate shaker mixes the solutions in the wells: *1000rpm at 21 degrees for 10 mins*
+### Plate shaker  
+Mixes the solutions in the wells: *1000rpm at 21 degrees for 10 mins*
 
 
-3. Plate Reader:
+### Plate Reader:
 
- Conducts a final orbital shake and reads the absorbance in the selected wells.
+Conducts a final orbital shake and reads the absorbance in the selected wells.
 
-4.  Analysis Package:
+###  Analysis Package:
 
  1. First script parses, trims, cleans and organises the raw data
 
@@ -62,13 +63,12 @@ Rough outline of steps:
 
 * A2 - 22.5ml of Bradford Reagent in a 50ml Falcon.
 
-* B1 - Empty 50ml Falcon
+* B1 - Empty 50ml Falcon - *this just acts as a bin for residual liquids.*
 
 
 #### Position 6 (Where the OT2 performs the sample dilutions):
 
 * Fill columns 1&2 with empty 2ml eppendorfs.
-
 
 
 ## Run
