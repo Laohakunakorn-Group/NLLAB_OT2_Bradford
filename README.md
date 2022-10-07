@@ -54,10 +54,6 @@ e.g.
 cd Desktop/OT2_Protocols
 ```
 
-If you're successful, you'll see something like this:
-
-![Desktop Navigation](img/initial_navigation.png)
-
 Next you need to download the repository using the git clone command ***if it's not there already***:
 
 ```bash
