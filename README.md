@@ -89,11 +89,10 @@ You can do this by clicking here and following the instructions. **Be sure to do
 
 ![Upload Protocol](img/upload_protocol.png)
 
-**Now place the labware securely into the OT2 using the diagram below.**
-
-![Open Protocol](img/open_protocol.png)
 
 ### Rack Set-Up:
+
+**Now place the labware securely into the OT2 using the diagram below.**
 
 ![ot2_bradford_deck_layout](img/ot2_bradford_deck_layout.png)
 
