@@ -97,7 +97,7 @@ You can do this by clicking here and following the instructions. **Be sure to do
 #### Position 4 (Protein sample + Standards source):
 
 * Standards Dilutions - Each 2ml Eppendorf contains 100ul of standard.
- * 0ug/ml in A1 - 1000ug/ml in D1 - 1250ug/ml in A2 - 2000ug/ml in D2.
+ * 0ug/ml in A1 - 100ug/ml in D1 - 125ug/ml in A2 - 200ug/ml in D2.
 
 * Put 100ul of the manually diluted sample dilution 10X in A6. ***This should be prepared with 90ul of Stock-30 mixed with 10ul of your protein sample***
 
@@ -105,7 +105,7 @@ You can do this by clicking here and following the instructions. **Be sure to do
 
 * A1 - 10ml of stock-30 in a 50ml Falcon
 
-* A2 - 22.5ml of Bradford Reagent in a 50ml Falcon.
+* A2 - 25ml of Bradford Reagent in a 50ml Falcon.
 
 * B1 - Empty 50ml Falcon - *this just acts as a bin for residual liquids.*
 
