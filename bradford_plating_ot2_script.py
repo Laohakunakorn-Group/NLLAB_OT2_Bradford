@@ -55,7 +55,7 @@ def run(protocol: protocol_api.ProtocolContext):
             right_pipette.touch_tip()
 
             # Still dispensing 1mm above the bottom
-            right_pipette.dispense(dispense_volume, well.top(-29), rate=0.1)
+            right_pipette.dispense(dispense_volume, well.top(-33), rate=0.1)
             protocol.delay(seconds=2)
             right_pipette.touch_tip()
 
@@ -73,15 +73,15 @@ def run(protocol: protocol_api.ProtocolContext):
 
             right_pipette.well_bottom_clearance.aspirate = aspirate_height
 
-            right_pipette.aspirate(aspirate_volume, reagent_falcon_block['A2'].top(-aspirate_height), rate=0.5)
+            right_pipette.aspirate(aspirate_volume, reagent_falcon_block['A2'].top(-aspirate_height), rate=0.7)
             protocol.delay(seconds=2)
             right_pipette.touch_tip()
 
             # Still dispensing 1mm above the bottom
-            right_pipette.dispense(dispense_volume, well.top(3), rate=0.5)
-            protocol.delay(seconds=2)
-            right_pipette.move_to(well.top())
-            protocol.delay(seconds=2)
+            right_pipette.dispense(dispense_volume, well.top(3), rate=0.7)
+            protocol.delay(seconds=1)
+            right_pipette.move_to(well.top(-1))
+
 
 
     def distribute_protein_mix(aspirate_well, aspirate_plate, dispense_well, dispense_volume):
@@ -96,7 +96,7 @@ def run(protocol: protocol_api.ProtocolContext):
             # plus 10%
             aspirate_volume = dispense_volume + (dispense_volume*0.1)
 
-            left_pipette.aspirate(aspirate_volume, aspirate_plate[aspirate_well].bottom(2), rate=0.5)
+            left_pipette.aspirate(aspirate_volume, aspirate_plate[aspirate_well].bottom(1), rate=0.5)
             protocol.delay(seconds=2)
             left_pipette.touch_tip()
 
@@ -139,7 +139,7 @@ def run(protocol: protocol_api.ProtocolContext):
     dilution_toggle = True
     plate_sample_dilutions = True
     bradford_toggle = True
-    plate_standards_toggle = False
+    plate_standards_toggle = True
 
     if dilution_toggle:
         ##################################### Dispense stock 30
@@ -166,7 +166,7 @@ def run(protocol: protocol_api.ProtocolContext):
 
         right_pipette.transfer(80,
                                 BSA_standards_2ml_eppendorfs.wells_by_name()['A6'].top(-sample_20x_aspirate_height),
-                                reagent_2ml_eppendorfs.wells_by_name()['A1'].top(-sample_20x_aspirate_height),
+                                reagent_2ml_eppendorfs.wells_by_name()['A1'].bottom(2),
                                 new_tip='always',
                                 # mix 2 times with 50uL before aspirating
                                 mix_before=(5, 60),
@@ -180,7 +180,7 @@ def run(protocol: protocol_api.ProtocolContext):
 
         right_pipette.transfer(50,
                             reagent_2ml_eppendorfs.wells_by_name()['A1'].top(-sample_50x_aspirate_height),
-                            reagent_2ml_eppendorfs.wells_by_name()['B1'].top(-sample_50x_aspirate_height),
+                            reagent_2ml_eppendorfs.wells_by_name()['B1'].bottom(2),
                             new_tip='always',
                             # mix 2 times with 50uL before aspirating
                             mix_before=(3, 100),
@@ -193,7 +193,7 @@ def run(protocol: protocol_api.ProtocolContext):
 
         right_pipette.transfer(20,
                             reagent_2ml_eppendorfs.wells_by_name()['A1'].top(-sample_50x_aspirate_height),
-                            reagent_2ml_eppendorfs.wells_by_name()['C1'].top(-sample_50x_aspirate_height),
+                            reagent_2ml_eppendorfs.wells_by_name()['C1'].bottom(2),
                             new_tip='always',
                             # mix 2 times with 50uL before aspirating
                             mix_before=(3, 80),
@@ -284,17 +284,17 @@ def run(protocol: protocol_api.ProtocolContext):
                                 [0, 0, 0, 0, 0, 0, 0, 0],
                                 [0, 0, 0, 0, 0, 0, 0, 0],
 
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0]
+                                #[0, 0, 0, 0, 0, 0, 0, 0],
+                                #[0, 0, 0, 0, 0, 0, 0, 0],
+                                #[0, 0, 0, 0, 0, 0, 0, 0],
+                                #[0, 0, 0, 0, 0, 0, 0, 0],
+                                #[0, 0, 0, 0, 0, 0, 0, 0]
 
-                                #[300, 300, 300, 300, 300, 300, 300, 300],
-                                #[300, 300, 300, 300, 300, 300, 300, 300],
-                                #[300, 300, 300, 300, 300, 300, 300, 300],
-                                #[300, 300, 300, 300, 300, 300, 300, 300],
-                                #[300, 300, 300, 300, 300, 300, 300, 300]
+                                [300, 300, 300, 300, 300, 300, 300, 300],
+                                [300, 300, 300, 300, 300, 300, 300, 300],
+                                [300, 300, 300, 300, 300, 300, 300, 300],
+                                [300, 300, 300, 300, 300, 300, 300, 300],
+                                [300, 300, 300, 300, 300, 300, 300, 300]
                                 ])
 
         # flatten array
