@@ -1,4 +1,4 @@
-numpy==1.16
+numpy
 pandas
 matplotlib
 sklearn
@@ -10,7 +10,6 @@ patsy
 lxml
 ipython
 ipywidgets
-mkl-service
 pydot
 graphviz
 setuptools
