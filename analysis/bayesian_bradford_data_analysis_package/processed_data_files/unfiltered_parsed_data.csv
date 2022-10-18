@@ -1,0 +1,385 @@
+Well,Absorbance,Measurement
+A1,0.193,Bradford:977 [Test]
+A2,0.195,Bradford:977 [Test]
+A3,0.204,Bradford:977 [Test]
+A4,,Bradford:977 [Test]
+A5,,Bradford:977 [Test]
+A6,,Bradford:977 [Test]
+A7,,Bradford:977 [Test]
+A8,0.202,Bradford:977 [Test]
+A9,0.197,Bradford:977 [Test]
+A10,0.198,Bradford:977 [Test]
+A11,0.204,Bradford:977 [Test]
+A12,0.201,Bradford:977 [Test]
+B1,0.198,Bradford:977 [Test]
+B2,0.201,Bradford:977 [Test]
+B3,0.195,Bradford:977 [Test]
+B4,,Bradford:977 [Test]
+B5,,Bradford:977 [Test]
+B6,,Bradford:977 [Test]
+B7,,Bradford:977 [Test]
+B8,0.197,Bradford:977 [Test]
+B9,0.198,Bradford:977 [Test]
+B10,0.198,Bradford:977 [Test]
+B11,0.205,Bradford:977 [Test]
+B12,0.201,Bradford:977 [Test]
+C1,0.197,Bradford:977 [Test]
+C2,0.207,Bradford:977 [Test]
+C3,0.198,Bradford:977 [Test]
+C4,,Bradford:977 [Test]
+C5,,Bradford:977 [Test]
+C6,,Bradford:977 [Test]
+C7,,Bradford:977 [Test]
+C8,0.199,Bradford:977 [Test]
+C9,0.198,Bradford:977 [Test]
+C10,0.199,Bradford:977 [Test]
+C11,0.206,Bradford:977 [Test]
+C12,0.202,Bradford:977 [Test]
+D1,,Bradford:977 [Test]
+D2,,Bradford:977 [Test]
+D3,,Bradford:977 [Test]
+D4,,Bradford:977 [Test]
+D5,,Bradford:977 [Test]
+D6,,Bradford:977 [Test]
+D7,,Bradford:977 [Test]
+D8,0.199,Bradford:977 [Test]
+D9,0.199,Bradford:977 [Test]
+D10,0.199,Bradford:977 [Test]
+D11,0.204,Bradford:977 [Test]
+D12,0.204,Bradford:977 [Test]
+E1,,Bradford:977 [Test]
+E2,,Bradford:977 [Test]
+E3,,Bradford:977 [Test]
+E4,,Bradford:977 [Test]
+E5,,Bradford:977 [Test]
+E6,,Bradford:977 [Test]
+E7,,Bradford:977 [Test]
+E8,0.198,Bradford:977 [Test]
+E9,0.203,Bradford:977 [Test]
+E10,0.198,Bradford:977 [Test]
+E11,0.204,Bradford:977 [Test]
+E12,0.203,Bradford:977 [Test]
+F1,,Bradford:977 [Test]
+F2,,Bradford:977 [Test]
+F3,,Bradford:977 [Test]
+F4,,Bradford:977 [Test]
+F5,,Bradford:977 [Test]
+F6,,Bradford:977 [Test]
+F7,,Bradford:977 [Test]
+F8,0.198,Bradford:977 [Test]
+F9,0.199,Bradford:977 [Test]
+F10,0.198,Bradford:977 [Test]
+F11,0.204,Bradford:977 [Test]
+F12,0.203,Bradford:977 [Test]
+G1,,Bradford:977 [Test]
+G2,,Bradford:977 [Test]
+G3,,Bradford:977 [Test]
+G4,,Bradford:977 [Test]
+G5,,Bradford:977 [Test]
+G6,,Bradford:977 [Test]
+G7,,Bradford:977 [Test]
+G8,0.198,Bradford:977 [Test]
+G9,0.197,Bradford:977 [Test]
+G10,0.198,Bradford:977 [Test]
+G11,0.203,Bradford:977 [Test]
+G12,0.203,Bradford:977 [Test]
+H1,,Bradford:977 [Test]
+H2,,Bradford:977 [Test]
+H3,,Bradford:977 [Test]
+H4,,Bradford:977 [Test]
+H5,,Bradford:977 [Test]
+H6,,Bradford:977 [Test]
+H7,,Bradford:977 [Test]
+H8,0.197,Bradford:977 [Test]
+H9,0.195,Bradford:977 [Test]
+H10,0.198,Bradford:977 [Test]
+H11,0.203,Bradford:977 [Test]
+H12,0.203,Bradford:977 [Test]
+A1,0.082,Bradford:900 [Ref]
+A2,0.082,Bradford:900 [Ref]
+A3,0.091,Bradford:900 [Ref]
+A4,,Bradford:900 [Ref]
+A5,,Bradford:900 [Ref]
+A6,,Bradford:900 [Ref]
+A7,,Bradford:900 [Ref]
+A8,0.083,Bradford:900 [Ref]
+A9,0.082,Bradford:900 [Ref]
+A10,0.083,Bradford:900 [Ref]
+A11,0.085,Bradford:900 [Ref]
+A12,0.083,Bradford:900 [Ref]
+B1,0.082,Bradford:900 [Ref]
+B2,0.086,Bradford:900 [Ref]
+B3,0.082,Bradford:900 [Ref]
+B4,,Bradford:900 [Ref]
+B5,,Bradford:900 [Ref]
+B6,,Bradford:900 [Ref]
+B7,,Bradford:900 [Ref]
+B8,0.083,Bradford:900 [Ref]
+B9,0.084,Bradford:900 [Ref]
+B10,0.084,Bradford:900 [Ref]
+B11,0.086,Bradford:900 [Ref]
+B12,0.085,Bradford:900 [Ref]
+C1,0.083,Bradford:900 [Ref]
+C2,0.093,Bradford:900 [Ref]
+C3,0.082,Bradford:900 [Ref]
+C4,,Bradford:900 [Ref]
+C5,,Bradford:900 [Ref]
+C6,,Bradford:900 [Ref]
+C7,,Bradford:900 [Ref]
+C8,0.085,Bradford:900 [Ref]
+C9,0.085,Bradford:900 [Ref]
+C10,0.086,Bradford:900 [Ref]
+C11,0.087,Bradford:900 [Ref]
+C12,0.085,Bradford:900 [Ref]
+D1,,Bradford:900 [Ref]
+D2,,Bradford:900 [Ref]
+D3,,Bradford:900 [Ref]
+D4,,Bradford:900 [Ref]
+D5,,Bradford:900 [Ref]
+D6,,Bradford:900 [Ref]
+D7,,Bradford:900 [Ref]
+D8,0.086,Bradford:900 [Ref]
+D9,0.085,Bradford:900 [Ref]
+D10,0.085,Bradford:900 [Ref]
+D11,0.087,Bradford:900 [Ref]
+D12,0.086,Bradford:900 [Ref]
+E1,,Bradford:900 [Ref]
+E2,,Bradford:900 [Ref]
+E3,,Bradford:900 [Ref]
+E4,,Bradford:900 [Ref]
+E5,,Bradford:900 [Ref]
+E6,,Bradford:900 [Ref]
+E7,,Bradford:900 [Ref]
+E8,0.084,Bradford:900 [Ref]
+E9,0.086,Bradford:900 [Ref]
+E10,0.085,Bradford:900 [Ref]
+E11,0.086,Bradford:900 [Ref]
+E12,0.086,Bradford:900 [Ref]
+F1,,Bradford:900 [Ref]
+F2,,Bradford:900 [Ref]
+F3,,Bradford:900 [Ref]
+F4,,Bradford:900 [Ref]
+F5,,Bradford:900 [Ref]
+F6,,Bradford:900 [Ref]
+F7,,Bradford:900 [Ref]
+F8,0.084,Bradford:900 [Ref]
+F9,0.086,Bradford:900 [Ref]
+F10,0.084,Bradford:900 [Ref]
+F11,0.086,Bradford:900 [Ref]
+F12,0.086,Bradford:900 [Ref]
+G1,,Bradford:900 [Ref]
+G2,,Bradford:900 [Ref]
+G3,,Bradford:900 [Ref]
+G4,,Bradford:900 [Ref]
+G5,,Bradford:900 [Ref]
+G6,,Bradford:900 [Ref]
+G7,,Bradford:900 [Ref]
+G8,0.085,Bradford:900 [Ref]
+G9,0.084,Bradford:900 [Ref]
+G10,0.084,Bradford:900 [Ref]
+G11,0.086,Bradford:900 [Ref]
+G12,0.086,Bradford:900 [Ref]
+H1,,Bradford:900 [Ref]
+H2,,Bradford:900 [Ref]
+H3,,Bradford:900 [Ref]
+H4,,Bradford:900 [Ref]
+H5,,Bradford:900 [Ref]
+H6,,Bradford:900 [Ref]
+H7,,Bradford:900 [Ref]
+H8,0.084,Bradford:900 [Ref]
+H9,0.082,Bradford:900 [Ref]
+H10,0.085,Bradford:900 [Ref]
+H11,0.086,Bradford:900 [Ref]
+H12,0.086,Bradford:900 [Ref]
+A1,0.622,Bradford:Pathlength
+A2,0.628,Bradford:Pathlength
+A3,0.628,Bradford:Pathlength
+A4,,Bradford:Pathlength
+A5,,Bradford:Pathlength
+A6,,Bradford:Pathlength
+A7,,Bradford:Pathlength
+A8,0.662,Bradford:Pathlength
+A9,0.637,Bradford:Pathlength
+A10,0.637,Bradford:Pathlength
+A11,0.663,Bradford:Pathlength
+A12,0.654,Bradford:Pathlength
+B1,0.643,Bradford:Pathlength
+B2,0.638,Bradford:Pathlength
+B3,0.631,Bradford:Pathlength
+B4,,Bradford:Pathlength
+B5,,Bradford:Pathlength
+B6,,Bradford:Pathlength
+B7,,Bradford:Pathlength
+B8,0.633,Bradford:Pathlength
+B9,0.636,Bradford:Pathlength
+B10,0.636,Bradford:Pathlength
+B11,0.662,Bradford:Pathlength
+B12,0.646,Bradford:Pathlength
+C1,0.635,Bradford:Pathlength
+C2,0.637,Bradford:Pathlength
+C3,0.643,Bradford:Pathlength
+C4,,Bradford:Pathlength
+C5,,Bradford:Pathlength
+C6,,Bradford:Pathlength
+C7,,Bradford:Pathlength
+C8,0.631,Bradford:Pathlength
+C9,0.63,Bradford:Pathlength
+C10,0.627,Bradford:Pathlength
+C11,0.659,Bradford:Pathlength
+C12,0.649,Bradford:Pathlength
+D1,,Bradford:Pathlength
+D2,,Bradford:Pathlength
+D3,,Bradford:Pathlength
+D4,,Bradford:Pathlength
+D5,,Bradford:Pathlength
+D6,,Bradford:Pathlength
+D7,,Bradford:Pathlength
+D8,0.628,Bradford:Pathlength
+D9,0.633,Bradford:Pathlength
+D10,0.634,Bradford:Pathlength
+D11,0.649,Bradford:Pathlength
+D12,0.657,Bradford:Pathlength
+E1,,Bradford:Pathlength
+E2,,Bradford:Pathlength
+E3,,Bradford:Pathlength
+E4,,Bradford:Pathlength
+E5,,Bradford:Pathlength
+E6,,Bradford:Pathlength
+E7,,Bradford:Pathlength
+E8,0.634,Bradford:Pathlength
+E9,0.652,Bradford:Pathlength
+E10,0.628,Bradford:Pathlength
+E11,0.651,Bradford:Pathlength
+E12,0.651,Bradford:Pathlength
+F1,,Bradford:Pathlength
+F2,,Bradford:Pathlength
+F3,,Bradford:Pathlength
+F4,,Bradford:Pathlength
+F5,,Bradford:Pathlength
+F6,,Bradford:Pathlength
+F7,,Bradford:Pathlength
+F8,0.631,Bradford:Pathlength
+F9,0.629,Bradford:Pathlength
+F10,0.631,Bradford:Pathlength
+F11,0.651,Bradford:Pathlength
+F12,0.649,Bradford:Pathlength
+G1,,Bradford:Pathlength
+G2,,Bradford:Pathlength
+G3,,Bradford:Pathlength
+G4,,Bradford:Pathlength
+G5,,Bradford:Pathlength
+G6,,Bradford:Pathlength
+G7,,Bradford:Pathlength
+G8,0.629,Bradford:Pathlength
+G9,0.629,Bradford:Pathlength
+G10,0.63,Bradford:Pathlength
+G11,0.652,Bradford:Pathlength
+G12,0.654,Bradford:Pathlength
+H1,,Bradford:Pathlength
+H2,,Bradford:Pathlength
+H3,,Bradford:Pathlength
+H4,,Bradford:Pathlength
+H5,,Bradford:Pathlength
+H6,,Bradford:Pathlength
+H7,,Bradford:Pathlength
+H8,0.629,Bradford:Pathlength
+H9,0.626,Bradford:Pathlength
+H10,0.629,Bradford:Pathlength
+H11,0.652,Bradford:Pathlength
+H12,0.652,Bradford:Pathlength
+A1,0.426,Bradford:595
+A2,0.435,Bradford:595
+A3,0.447,Bradford:595
+A4,,Bradford:595
+A5,,Bradford:595
+A6,,Bradford:595
+A7,,Bradford:595
+A8,0.459,Bradford:595
+A9,0.446,Bradford:595
+A10,0.447,Bradford:595
+A11,0.466,Bradford:595
+A12,0.456,Bradford:595
+B1,0.447,Bradford:595
+B2,0.453,Bradford:595
+B3,0.442,Bradford:595
+B4,,Bradford:595
+B5,,Bradford:595
+B6,,Bradford:595
+B7,,Bradford:595
+B8,0.473,Bradford:595
+B9,0.468,Bradford:595
+B10,0.475,Bradford:595
+B11,0.486,Bradford:595
+B12,0.484,Bradford:595
+C1,0.45,Bradford:595
+C2,0.459,Bradford:595
+C3,0.452,Bradford:595
+C4,,Bradford:595
+C5,,Bradford:595
+C6,,Bradford:595
+C7,,Bradford:595
+C8,0.511,Bradford:595
+C9,0.506,Bradford:595
+C10,0.506,Bradford:595
+C11,0.522,Bradford:595
+C12,0.514,Bradford:595
+D1,,Bradford:595
+D2,,Bradford:595
+D3,,Bradford:595
+D4,,Bradford:595
+D5,,Bradford:595
+D6,,Bradford:595
+D7,,Bradford:595
+D8,0.521,Bradford:595
+D9,0.514,Bradford:595
+D10,0.508,Bradford:595
+D11,0.534,Bradford:595
+D12,0.53,Bradford:595
+E1,,Bradford:595
+E2,,Bradford:595
+E3,,Bradford:595
+E4,,Bradford:595
+E5,,Bradford:595
+E6,,Bradford:595
+E7,,Bradford:595
+E8,0.536,Bradford:595
+E9,0.529,Bradford:595
+E10,0.515,Bradford:595
+E11,0.531,Bradford:595
+E12,0.535,Bradford:595
+F1,,Bradford:595
+F2,,Bradford:595
+F3,,Bradford:595
+F4,,Bradford:595
+F5,,Bradford:595
+F6,,Bradford:595
+F7,,Bradford:595
+F8,0.553,Bradford:595
+F9,0.556,Bradford:595
+F10,0.56,Bradford:595
+F11,0.577,Bradford:595
+F12,0.561,Bradford:595
+G1,,Bradford:595
+G2,,Bradford:595
+G3,,Bradford:595
+G4,,Bradford:595
+G5,,Bradford:595
+G6,,Bradford:595
+G7,,Bradford:595
+G8,0.568,Bradford:595
+G9,0.565,Bradford:595
+G10,0.564,Bradford:595
+G11,0.576,Bradford:595
+G12,0.578,Bradford:595
+H1,,Bradford:595
+H2,,Bradford:595
+H3,,Bradford:595
+H4,,Bradford:595
+H5,,Bradford:595
+H6,,Bradford:595
+H7,,Bradford:595
+H8,0.593,Bradford:595
+H9,0.598,Bradford:595
+H10,0.599,Bradford:595
+H11,0.644,Bradford:595
+H12,0.64,Bradford:595
