@@ -79,20 +79,20 @@ numpy
 6. Build the docker image
 
 ""
-docker build -t jupyter_with_bespoke_python_packages .
+docker build -t ot2_brad_bayes .
 ""
 
 7. Run your container on port 8888
 e.g.
 
 ""
-docker run -p 8888:8888 -v "%CD%":/src jupyter_with_bespoke_python_packages
+docker run -p 8888:8888 -v "%CD%":/src ot2_brad_bayes
 ""
 
 If you're on Mac or Linux:
 
 ""
-docker run -p 8888:8888 -v "%PWD":/src jupyter_with_bespoke_python_packages
+docker run -p 8888:8888 -v "%PWD":/src ot2_brad_bayes
 ""
 
 
