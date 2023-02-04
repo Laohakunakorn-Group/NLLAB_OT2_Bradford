@@ -3,11 +3,11 @@ import numpy as np
 
 # metadata
 metadata = {
-    'protocolName': 'Bradford Platting. V.001',
-    'author': 'Alex Perkins',
-    'email': 'a.j.p.perkins@sms.ed.ac.uk',
-    'description': 'Simple protocol to plate a bradford assay - not dynamic',
-    'apiLevel': '2.11'
+    "protocolName": "Bradford Platting. V.001",
+    "author": "Alex Perkins",
+    "email": "a.j.p.perkins@sms.ed.ac.uk",
+    "description": "Simple protocol to plate a bradford assay - not dynamic",
+    "apiLevel": "2.11"
 }
 
 
@@ -20,20 +20,20 @@ metadata = {
 def run(protocol: protocol_api.ProtocolContext):
 
     # labware
-    plate = protocol.load_labware('corning_96_wellplate_360ul_flat', '5')
+    plate = protocol.load_labware("corning_96_wellplate_360ul_flat", "5")
 
-    reagent_falcon_block = protocol.load_labware('trevor_6_tuberack_50000ul','8')
-    reagent_2ml_eppendorfs = protocol.load_labware('opentrons_24_tuberack_eppendorf_2ml_safelock_snapcap', '6')
-    BSA_standards_2ml_eppendorfs = protocol.load_labware('opentrons_24_tuberack_eppendorf_2ml_safelock_snapcap', '4')
+    reagent_falcon_block = protocol.load_labware("trevor_6_tuberack_50000ul","8")
+    reagent_2ml_eppendorfs = protocol.load_labware("opentrons_24_tuberack_eppendorf_2ml_safelock_snapcap", "6")
+    BSA_standards_2ml_eppendorfs = protocol.load_labware("opentrons_24_tuberack_eppendorf_2ml_safelock_snapcap", "4")
 
 
     # pipettes
-    tiprack_20ul = protocol.load_labware('opentrons_96_tiprack_20ul', '9')
+    tiprack_20ul = protocol.load_labware("opentrons_96_tiprack_20ul", "9")
     left_pipette = protocol.load_instrument(
-         'p20_single_gen2', 'left', tip_racks=[tiprack_20ul])
+         "p20_single_gen2", "left", tip_racks=[tiprack_20ul])
 
-    tiprack_300ul = protocol.load_labware('opentrons_96_tiprack_300ul', '11')
-    right_pipette = protocol.load_instrument('p300_single_gen2', 'right', tip_racks=[tiprack_300ul])
+    tiprack_300ul = protocol.load_labware("opentrons_96_tiprack_300ul", "11")
+    right_pipette = protocol.load_instrument("p300_single_gen2", "right", tip_racks=[tiprack_300ul])
 
 
     # Commands
@@ -50,7 +50,7 @@ def run(protocol: protocol_api.ProtocolContext):
             right_pipette.well_bottom_clearance.aspirate = aspirate_height
             right_pipette.well_bottom_clearance.dispense = 7
 
-            right_pipette.aspirate(aspirate_volume, reagent_falcon_block['A1'].top(-aspirate_height), rate=0.2)
+            right_pipette.aspirate(aspirate_volume, reagent_falcon_block["A1"].top(-aspirate_height), rate=0.2)
             protocol.delay(seconds=3)
             right_pipette.touch_tip()
 
@@ -59,7 +59,7 @@ def run(protocol: protocol_api.ProtocolContext):
             protocol.delay(seconds=2)
             right_pipette.touch_tip()
 
-            right_pipette.blow_out(reagent_falcon_block['A1'])
+            right_pipette.blow_out(reagent_falcon_block["A1"])
 
      # distribute bradford
     def distribute_bradford(well, aspirate_height, dispense_volume):
@@ -73,7 +73,7 @@ def run(protocol: protocol_api.ProtocolContext):
 
             right_pipette.well_bottom_clearance.aspirate = aspirate_height
 
-            right_pipette.aspirate(aspirate_volume, reagent_falcon_block['A2'].top(-aspirate_height), rate=0.7)
+            right_pipette.aspirate(aspirate_volume, reagent_falcon_block["A2"].top(-aspirate_height), rate=0.7)
             protocol.delay(seconds=2)
             right_pipette.touch_tip()
 
@@ -144,7 +144,7 @@ def run(protocol: protocol_api.ProtocolContext):
     if dilution_toggle:
         ##################################### Dispense stock 30
 
-        stock_30 = np.array([[80, 50, 80, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
+        stock_30 = np.array([[80, 50, 80, 0], [0, 0, 0, 0], [50, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
 
         # flatten array
         stock_30_vols = stock_30.reshape(-1)
@@ -165,9 +165,9 @@ def run(protocol: protocol_api.ProtocolContext):
         sample_20x_aspirate_height = 38
 
         right_pipette.transfer(80,
-                                BSA_standards_2ml_eppendorfs.wells_by_name()['A6'].top(-sample_20x_aspirate_height),
-                                reagent_2ml_eppendorfs.wells_by_name()['A1'].bottom(2),
-                                new_tip='always',
+                                BSA_standards_2ml_eppendorfs.wells_by_name()["A6"].top(-sample_20x_aspirate_height),
+                                reagent_2ml_eppendorfs.wells_by_name()["A1"].bottom(2),
+                                new_tip="always",
                                 # mix 2 times with 50uL before aspirating
                                 mix_before=(5, 60),
                                 mix_after=(10,120)
@@ -179,34 +179,37 @@ def run(protocol: protocol_api.ProtocolContext):
         sample_50x_aspirate_height = 38
 
         right_pipette.transfer(50,
-                            reagent_2ml_eppendorfs.wells_by_name()['A1'].top(-sample_50x_aspirate_height),
-                            reagent_2ml_eppendorfs.wells_by_name()['B1'].bottom(2),
-                            new_tip='always',
+                            reagent_2ml_eppendorfs.wells_by_name()["A1"].top(-sample_50x_aspirate_height),
+                            reagent_2ml_eppendorfs.wells_by_name()["B1"].bottom(2),
+                            new_tip="always",
                             # mix 2 times with 50uL before aspirating
                             mix_before=(3, 100),
                             mix_after=(10,60)
                             )
 
-        ################################## make x100 and mix
+        ################################## make 1 mg/ml postiive control from 2 mg/ml BSA standard
 
         sample_50x_aspirate_height = 38
 
-        right_pipette.transfer(20,
-                            reagent_2ml_eppendorfs.wells_by_name()['A1'].top(-sample_50x_aspirate_height),
-                            reagent_2ml_eppendorfs.wells_by_name()['C1'].bottom(2),
-                            new_tip='always',
+        right_pipette.transfer(50,
+                            reagent_2ml_eppendorfs.wells_by_name()["D6"].top(-sample_50x_aspirate_height),
+                            reagent_2ml_eppendorfs.wells_by_name()["C1"].bottom(2),
+                            new_tip="always",
                             # mix 2 times with 50uL before aspirating
                             mix_before=(3, 80),
                             mix_after=(10,60)
                             )
+
+
+        
         ################################## make x250 and mix
 
         #sample_50x_aspirate_height = 35
 
         #right_pipette.transfer(50,
-        #                    reagent_2ml_eppendorfs.wells_by_name()['A1'].top(-sample_50x_aspirate_height),
-        #                    reagent_2ml_eppendorfs.wells_by_name()['C1'].top(-sample_50x_aspirate_height),
-        #                    new_tip='always',
+        #                    reagent_2ml_eppendorfs.wells_by_name()["A1"].top(-sample_50x_aspirate_height),
+        #                    reagent_2ml_eppendorfs.wells_by_name()["C1"].top(-sample_50x_aspirate_height),
+        #                    new_tip="always",
         #                    # mix 2 times with 50uL before aspirating
         #                    mix_before=(3, 50),
         #                    mix_after=(10,220)
@@ -215,9 +218,9 @@ def run(protocol: protocol_api.ProtocolContext):
         ################################## make x400 and mix
         #sample_50x_aspirate_height = 35
         #right_pipette.transfer(50,
-        #                    reagent_2ml_eppendorfs.wells_by_name()['B1'].top(-sample_50x_aspirate_height),
-        #                    reagent_2ml_eppendorfs.wells_by_name()['D1'].top(-sample_50x_aspirate_height),
-        #                    new_tip='always',
+        #                    reagent_2ml_eppendorfs.wells_by_name()["B1"].top(-sample_50x_aspirate_height),
+        #                    reagent_2ml_eppendorfs.wells_by_name()["D1"].top(-sample_50x_aspirate_height),
+        #                    new_tip="always",
         #                    # mix 2 times with 50uL before aspirating
         #                    mix_before=(3, 50),
         #                    mix_after=(10,170)
@@ -226,9 +229,9 @@ def run(protocol: protocol_api.ProtocolContext):
         ################################## make x500 and mix
         #sample_50x_aspirate_height = 35
         #right_pipette.transfer(30,
-        #                    reagent_2ml_eppendorfs.wells_by_name()['B1'].top(-sample_50x_aspirate_height),
-        #                    reagent_2ml_eppendorfs.wells_by_name()['A2'].top(-sample_50x_aspirate_height),
-        #                    new_tip='always',
+        #                    reagent_2ml_eppendorfs.wells_by_name()["B1"].top(-sample_50x_aspirate_height),
+        #                    reagent_2ml_eppendorfs.wells_by_name()["A2"].top(-sample_50x_aspirate_height),
+        #                    new_tip="always",
         #                    # mix 2 times with 50uL before aspirating
         #                    mix_before=(3, 50),
         #                    mix_after=(10,130)
@@ -238,9 +241,9 @@ def run(protocol: protocol_api.ProtocolContext):
         ################################## make x600 and mix
         #sample_50x_aspirate_height = 35
         #right_pipette.transfer(30,
-        #                    reagent_2ml_eppendorfs.wells_by_name()['B1'].top(-sample_50x_aspirate_height),
-        #                    reagent_2ml_eppendorfs.wells_by_name()['B2'].top(-sample_50x_aspirate_height),
-        #                    new_tip='always',
+        #                    reagent_2ml_eppendorfs.wells_by_name()["B1"].top(-sample_50x_aspirate_height),
+        #                    reagent_2ml_eppendorfs.wells_by_name()["B2"].top(-sample_50x_aspirate_height),
+        #                    new_tip="always",
         #                    # mix 2 times with 50uL before aspirating
         #                    mix_before=(3, 50),
         #                    mix_after=(10,140)
@@ -249,21 +252,21 @@ def run(protocol: protocol_api.ProtocolContext):
         ################################## make x750 and mix
         #sample_50x_aspirate_height = 35
         #right_pipette.transfer(50,
-        #                    reagent_2ml_eppendorfs.wells_by_name()['C1'].top(-sample_50x_aspirate_height),
-        #                    reagent_2ml_eppendorfs.wells_by_name()['C2'].top(-sample_50x_aspirate_height),
-        #                    new_tip='always',
+        #                    reagent_2ml_eppendorfs.wells_by_name()["C1"].top(-sample_50x_aspirate_height),
+        #                    reagent_2ml_eppendorfs.wells_by_name()["C2"].top(-sample_50x_aspirate_height),
+        #                    new_tip="always",
         #                    # mix 2 times with 50uL before aspirating
         #                    mix_before=(3, 50),
         #                    mix_after=(10,130)
         #                    )
 
 
-        ################################## make x1000 and mix
+        ################################## make x1000 and mix'
         #sample_50x_aspirate_height = 35
         #right_pipette.transfer(30,
-        #                    reagent_2ml_eppendorfs.wells_by_name()['B2'].top(-sample_50x_aspirate_height),
-        #                    reagent_2ml_eppendorfs.wells_by_name()['D2'].top(-sample_50x_aspirate_height),
-        #                    new_tip='always',
+        #                    reagent_2ml_eppendorfs.wells_by_name()["B2"].top(-sample_50x_aspirate_height),
+        #                    reagent_2ml_eppendorfs.wells_by_name()["D2"].top(-sample_50x_aspirate_height),
+        #                    new_tip="always",
         #                    # mix 2 times with 50uL before aspirating
         #                    mix_before=(3, 50),
         #                    mix_after=(8,130)
@@ -275,9 +278,9 @@ def run(protocol: protocol_api.ProtocolContext):
     if bradford_toggle:
 
         bradford_arr = np.array([
-                                [300, 300, 300, 0, 0, 0, 0, 0],
-                                [300, 300, 300, 0, 0, 0, 0, 0],
-                                [300, 300, 300, 0, 0, 0, 0, 0],
+                                [300, 300, 300, 300, 0, 0, 0, 0],
+                                [300, 300, 300, 300, 0, 0, 0, 0],
+                                [300, 300, 300, 300, 0, 0, 0, 0],
 
                                 [0, 0, 0, 0, 0, 0, 0, 0],
                                 [0, 0, 0, 0, 0, 0, 0, 0],
@@ -320,8 +323,8 @@ def run(protocol: protocol_api.ProtocolContext):
 
     if plate_standards_toggle:
 
-        asp_wells = ['A1', 'B1', 'C1', 'D1', 'A2', 'B2', 'C2', 'D2']
-        disp_rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+        asp_wells = ["A1", "B1", "C1", "D1", "A2", "B2", "C2", "D2"]
+        disp_rows = ["A", "B", "C", "D", "E", "F", "G", "H"]
 
         disp_vols = [0, 0, 0, 0, 0, 0, 0, 10, 10, 10, 10, 10]
 
@@ -342,8 +345,8 @@ def run(protocol: protocol_api.ProtocolContext):
 
     if plate_sample_dilutions:
 
-        asp_wells = ['A1', 'B1', 'C1']
-        disp_rows = ['A', 'B', 'C']
+        asp_wells = ["A1", "B1", "C1", "A3"]
+        disp_rows = ["A", "B", "C","D"]
 
         disp_vols = [10, 10, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
