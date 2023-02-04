@@ -97,9 +97,11 @@ You can do this by clicking here and following the instructions. **Be sure to do
 #### Position 4 (Protein sample + Standards source):
 
 * Standards Dilutions - Each 2ml Eppendorf contains 100ul of standard.
- * 0ug/ml in A1 - 100ug/ml in D1 - 125ug/ml in A2 - 200ug/ml in D2.
+ * 0ug/ml in A1 - 1000ug/ml in D1 - 1250ug/ml in A2 - 2000ug/ml in D2.
 
 * Put 100ul of the manually diluted sample dilution 10X in A6. ***This should be prepared with 90ul of Stock-30 mixed with 10ul of your protein sample***
+  
+* Put 100ul of 2000 mg / ml BSA Standard in a 2ml eppendorf in D6, this is for the positive control.
 
 #### Position 8 (Source for Stock-30 & Bradford Reagent):
 
@@ -113,6 +115,7 @@ You can do this by clicking here and following the instructions. **Be sure to do
 #### Position 6 (Where the OT2 performs the sample dilutions):
 
 * Fill columns 1&2 with empty 2ml eppendorfs.
+* And one in A3, this is for the positive control.
 
 
 **Now select "Run Protocol", Select the OT2 and "Proceed to setup" at the bottom.**
