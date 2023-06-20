@@ -2,16 +2,16 @@ version: '3.8'
 
 services:
 
-  analysis:
+  automated_bradford_ot2:
     build: .
-    image: analysis
-    container_name: analysis_cntr
+    image: automated_bradford_ot2
+    container_name: automated_bradford_ot2
     ports:
-      - 8888:8888
+      - 2055:2055
 
     stdin_open: true # docker run -i
     tty: true        # docker run -t
 
     volumes:
-      - .:/app
+      - .:/src
 
