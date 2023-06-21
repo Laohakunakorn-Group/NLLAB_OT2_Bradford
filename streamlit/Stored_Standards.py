@@ -4,14 +4,22 @@ import json
 import streamlit as st
 from streamlit_js_eval import streamlit_js_eval
 from utils.models import linear_model, linear_polynomial_model, wrangle_calibration_data
+from scipy import stats
 
 
-if "Standard Curve DF cached" not in st.session_state:
-    st.session_state["Standard Curve DF cached"] = False
 
-if "Standard Curve" not in st.session_state:
-    st.session_state["Standard Curve"] = False
+st.set_page_config(
+    page_title="Bradford Assay",
+    page_icon="🧮",
+    #layout="wide",
+    #initial_sidebar_state="expanded",
+    menu_items={
+        'About': "This app was built by Alex Perkins: https://www.github.com/aperkins19"
+    }
+)
 
+if "data_submitted" not in st.session_state:
+    st.session_state["data_submitted"] = False
 
 
 @st.cache_data
@@ -74,6 +82,28 @@ if st.session_state["Model_Type"] == "Polynomial":
         value = 2,
         step = 1,
         help = "dfg")
+    
+
+st.sidebar.subheader("Prediction:")
+
+st.session_state["Number_of_Dilutions"] = st.sidebar.number_input(
+    label = "Number of Dilutions:",
+    min_value = 1,
+    value = 1,
+    step = 1,
+    help = ""
+)
+
+st.sidebar.write("Number of Technical Replicates for:")
+for dilution in range(1, st.session_state["Number_of_Dilutions"]+1, 1):
+    st.session_state["Dilution_"+str(dilution)] = dilution
+    st.session_state["Dilution_"+str(dilution)+"_#techreps"] = st.sidebar.number_input(
+                                                            label = "Dilution #"+str(dilution)+":",
+                                                            min_value = 1,
+                                                            value = 3,
+                                                            step = 1,
+                                                            help = ""
+                                                            )
 
 
 
@@ -198,5 +228,165 @@ elif st.session_state["Model_Type"] == "Polynomial":
     col3.metric("Features:", poly_features_selected)
 
 
-## Prediction expander
-prediction_expander = st.expander("Predict:", expanded=True)
+
+def data_input_callback():
+
+    ## set session state for data_submitted
+    st.session_state["data_submitted"] = True
+
+    ###### Construct absorbance_data_dict
+
+    absorbance_data_dict = {}
+
+    for dilution_number in range(1, st.session_state["Number_of_Dilutions"]+1, 1):
+
+        # list for storing the absorbances of tech reps - convert to array.
+        # clear absorbance from session state
+        absorbance_array = []
+        for rep in range(1, st.session_state["Dilution_"+str(dilution_number)+"_#techreps"]+1,1):
+            absorbance_array.append(st.session_state["dilution_number_" + str(dilution_number) + "_rep_"+str(rep)])
+            del st.session_state["dilution_number_" + str(dilution_number) + "_rep_"+str(rep)]
+
+        ## Add that record to the dict
+        absorbance_data_dict[dilution_number] = {
+
+            "Dilution_Factor" : st.session_state["dilution_number_" + str(dilution_number) + "_Dilution_Factor"],
+            "Absorbance_Array" : np.array(absorbance_array)
+        }
+
+        ## Clear dilution factor from session state
+        del st.session_state["dilution_number_" + str(dilution_number) + "_Dilution_Factor"]
+
+    # add to session state
+    st.session_state["Absorbance_Data_Dict"] = absorbance_data_dict
+
+    
+
+
+
+## Data Input expander
+data_input_expander = st.expander("Predict:", expanded=True)
+
+Sample_Input_Form = data_input_expander.form(key='Sample_Input_Form')
+
+Sample_Input_Form.subheader("Data Input:")
+Sample_Input_Form.write("Enter Absorbance Values for your technical replicates. Adjust the number on the sidebar:")
+
+# set up columns
+cols = Sample_Input_Form.columns(st.session_state["Number_of_Dilutions"])
+
+
+for dilution_column, dilution_number in zip(cols, range(1, st.session_state["Number_of_Dilutions"]+1, 1)):
+
+    # column title
+    dilution_column.subheader("Dilution #"+str(dilution_number)+":")
+
+    ## divider
+    dilution_column.divider()
+
+    ## Dilution Factor
+    dilution_column.number_input(
+            label = "Dilution Factor:",
+            min_value = 0.,
+            value = 1.,
+            step = 0.01,
+            help = "Values must be two decimal places.",
+            key = ("dilution_number_" + str(dilution_number) + "_Dilution_Factor")
+        )
+    
+    ## divider
+    dilution_column.divider()
+
+    for rep in range(1, st.session_state["Dilution_"+str(dilution_number)+"_#techreps"]+1,1):
+
+        dilution_column.number_input(
+            label = "Replicate #" +str(rep)+":",
+            min_value = 0.,
+            value = 0.,
+            step = 0.01,
+            help = "Values must be two decimal places.",
+            key = ("dilution_number_" + str(dilution_number) + "_rep_"+str(rep))
+        )
+
+Sample_Input_Form.form_submit_button("Submit", on_click = data_input_callback)
+
+
+## Data Overview expander
+if st.session_state["data_submitted"]:
+
+    data_overview_expander = st.expander("Absorbance Data Overview:", expanded=True)
+
+    data_overview_expander.subheader("Summary Stats:")
+
+    ### Absorbance Metrics
+    # set up columns
+    cols = data_overview_expander.columns(st.session_state["Number_of_Dilutions"])
+
+    for dilution_column, dilution_number in zip(cols, range(1, st.session_state["Number_of_Dilutions"]+1, 1)):
+
+
+        dilution_column.caption("Dilution #"+str(dilution_number)+":")
+
+        #### Absorbance Metrics
+        # Extract absorbance array
+        absorbance_array = st.session_state["Absorbance_Data_Dict"][dilution_number]["Absorbance_Array"]
+
+        # summary stats
+        dilution_column.metric("Mean of Absorbances:", round(np.mean(absorbance_array, axis=0),2))
+
+        # store mean
+        st.session_state["Absorbance_Data_Dict"][dilution_number]["Mean"] = round(np.mean(absorbance_array, axis=0),2)
+
+        # if tech reps less than 3 than can't do Standard Error
+        if st.session_state["Dilution_"+str(dilution_number)+"_#techreps"] < 3:
+
+            dilution_column.metric("Too few Reps to calculate Standard Error:", None)
+            #  store sem
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM"] = None
+        else:
+            dilution_column.metric("Standard Error of the Mean:", round(stats.sem(absorbance_array),2))
+            #  store sem
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM"] = round(stats.sem(absorbance_array),2)
+
+    data_overview_expander.subheader("Summary Plots:")
+
+
+    def generate_summary_plots(Absorbance_Data_Dict):
+
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+
+        data_overview_expander.divider()
+
+        ## bar plot
+        # generate the df
+        Absorbance_Data_DF = pd.DataFrame.from_dict(Absorbance_Data_Dict).T
+        # Creating a Matplotlib figure and axes
+        fig1, ax1 = plt.subplots()
+
+        # Creating a barplot using Seaborn
+        sns.barplot(
+            data = Absorbance_Data_DF,
+            x = "Dilution_Factor",
+            y = "Mean",
+            ax = ax1,
+            palette = "rocket"
+            )
+
+        # Setting labels and title
+        ax1.set_xlabel('Dilution Factor')
+        ax1.set_ylabel('Mean of Absorbances')
+        ax1.set_title('Mean of absorbances for each Dilution Factor')
+
+        data_overview_expander.pyplot(fig1)
+
+        data_overview_expander.divider()
+
+        ### heat map
+        
+
+
+
+
+    
+    generate_summary_plots(st.session_state["Absorbance_Data_Dict"])
