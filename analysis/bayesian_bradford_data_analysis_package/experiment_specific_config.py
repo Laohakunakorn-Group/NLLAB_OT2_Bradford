@@ -22,3 +22,5 @@ calibrants_dict = {
 
 
 plate_reader = "Biotek H1"
+
+use_existing_calibrants = True

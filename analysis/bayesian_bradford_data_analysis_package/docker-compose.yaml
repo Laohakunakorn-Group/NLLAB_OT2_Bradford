@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+  analysis:
+    build: .
+    image: analysis
+    container_name: analysis_cntr
+    ports:
+      - 8888:8888
+
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
+    volumes:
+      - .:/src
+

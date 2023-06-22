@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+
+  automated_bradford_ot2:
+    build: .
+    image: automated_bradford_ot2
+    container_name: automated_bradford_ot2
+    ports:
+      - 2061:2061
+
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
+    volumes:
+      - .:/src
+

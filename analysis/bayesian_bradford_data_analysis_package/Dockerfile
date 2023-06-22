@@ -2,7 +2,7 @@
 # Dockerfile 04/2021
 # Python environment for exporting data analysis for processing on remote systems. 
 
-FROM ubuntu:latest
+FROM ubuntu:20.04
 MAINTAINER Alex Perkins <a.j.p.perkins@sms.ed.ac.uk>
 RUN apt-get update && apt-get -y update
 RUN apt-get install -y build-essential python3.6 python3-pip python3-dev
