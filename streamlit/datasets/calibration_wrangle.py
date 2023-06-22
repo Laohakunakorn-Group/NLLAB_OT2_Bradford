@@ -4,44 +4,39 @@ import pandas as pd
 raw = pd.read_csv("calibration.csv")
 
 
-print(raw)
+#print(raw)
 
-sahan = pd.read_csv("sahan_cal.csv")
+new_curve = pd.read_csv("new_calibration_curve_biotek_310ul.csv", header=None)
 
-sahan = pd.melt(
-        sahan,
-        id_vars="Exp. Conc.",
-        value_vars=["Abs 1",  "Abs 2",  "Abs 3",  "Abs 4"],
+print(new_curve)
+
+
+new_curve = pd.melt(
+        new_curve,
+        id_vars=0,
+        value_vars=[1,  2,  3,  4, 5],
         var_name=None,
         value_name='Absorbance'
         )
 
-sahan.rename({"Exp. Conc.": "Sample_Concentration_ug/ml"}, axis=1, inplace=True)
-sahan["Sample_Concentration_ug/ml"] = sahan["Sample_Concentration_ug/ml"] *1000
-sahan["Sample_Concentration_ug/ml"] = sahan["Sample_Concentration_ug/ml"].astype(int)
-sahan["Maker"] = "Sahan Liyanagedera"
-sahan["Bradford_Volume_µl"] = 250
-sahan["Sample_Volume_µl"] = 5
-sahan["Instrument"] = "BiotekH1"
-sahan["Measurement"] = "Bradford:595"
+new_curve = new_curve.drop("variable", axis=1)
+new_curve.rename({0: "Sample_Concentration_ug/ml"}, axis=1, inplace=True)
 
-sahan = sahan.sort_values(by=["Sample_Concentration_ug/ml"], ascending=False)
+new_curve["Sample_Concentration_ug/ml"] = new_curve["Sample_Concentration_ug/ml"].astype(int)
+new_curve["Maker"] = "Alex Perkins"
+new_curve["Bradford_Volume_µl"] = 300
+new_curve["Sample_Volume_µl"] = 10
+new_curve["Instrument"] = "BiotekH1"
+new_curve["Measurement"] = "Bradford:595"
 
-sahan = sahan.drop("variable", axis=1)
-print(sahan.columns)
-
-sahan = sahan.reset_index(drop=True)
+new_curve = new_curve.sort_values(by=["Sample_Concentration_ug/ml"], ascending=False)
+new_curve = new_curve.reset_index(drop=True)
 
 
-raw = pd.concat([raw, sahan])
+raw = pd.concat([raw, new_curve])
 raw = raw.reset_index(drop=True)
 
 print(raw)
 
 
-#raw = raw.rename(columns={'Bradford_Volume_ul': 'Bradford_Volume_µl', 'Sample_Volume_ul': 'Sample_Volume_µl'})
-#print(raw)
-#raw = raw.drop("Unnamed: 0", axis = 1)
-
 raw.to_csv("calibration.csv", index=None)
-
