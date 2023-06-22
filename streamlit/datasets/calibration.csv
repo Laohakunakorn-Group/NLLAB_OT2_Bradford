@@ -1,41 +1,73 @@
-Absorbance,Measurement,Instrument,Sample_Concentration_ug/ml,Bradford_Volume_µl,Sample_Volume_µl
-0.459,Bradford:595,BiotekH1,0,300,10
-0.446,Bradford:595,BiotekH1,0,300,10
-0.447,Bradford:595,BiotekH1,0,300,10
-0.466,Bradford:595,BiotekH1,0,300,10
-0.456,Bradford:595,BiotekH1,0,300,10
-0.473,Bradford:595,BiotekH1,50,300,10
-0.468,Bradford:595,BiotekH1,50,300,10
-0.475,Bradford:595,BiotekH1,50,300,10
-0.486,Bradford:595,BiotekH1,50,300,10
-0.484,Bradford:595,BiotekH1,50,300,10
-0.511,Bradford:595,BiotekH1,75,300,10
-0.506,Bradford:595,BiotekH1,75,300,10
-0.506,Bradford:595,BiotekH1,75,300,10
-0.522,Bradford:595,BiotekH1,75,300,10
-0.514,Bradford:595,BiotekH1,75,300,10
-0.521,Bradford:595,BiotekH1,100,300,10
-0.514,Bradford:595,BiotekH1,100,300,10
-0.508,Bradford:595,BiotekH1,100,300,10
-0.534,Bradford:595,BiotekH1,100,300,10
-0.53,Bradford:595,BiotekH1,100,300,10
-0.536,Bradford:595,BiotekH1,125,300,10
-0.529,Bradford:595,BiotekH1,125,300,10
-0.515,Bradford:595,BiotekH1,125,300,10
-0.531,Bradford:595,BiotekH1,125,300,10
-0.535,Bradford:595,BiotekH1,125,300,10
-0.553,Bradford:595,BiotekH1,150,300,10
-0.556,Bradford:595,BiotekH1,150,300,10
-0.56,Bradford:595,BiotekH1,150,300,10
-0.577,Bradford:595,BiotekH1,150,300,10
-0.561,Bradford:595,BiotekH1,150,300,10
-0.568,Bradford:595,BiotekH1,175,300,10
-0.565,Bradford:595,BiotekH1,175,300,10
-0.564,Bradford:595,BiotekH1,175,300,10
-0.576,Bradford:595,BiotekH1,175,300,10
-0.578,Bradford:595,BiotekH1,175,300,10
-0.593,Bradford:595,BiotekH1,200,300,10
-0.598,Bradford:595,BiotekH1,200,300,10
-0.599,Bradford:595,BiotekH1,200,300,10
-0.644,Bradford:595,BiotekH1,200,300,10
-0.64,Bradford:595,BiotekH1,200,300,10
+Absorbance,Measurement,Instrument,Sample_Concentration_ug/ml,Bradford_Volume_µl,Sample_Volume_µl,Maker
+0.459,Bradford:595,BiotekH1,0,300,10,Alex Perkins
+0.446,Bradford:595,BiotekH1,0,300,10,Alex Perkins
+0.447,Bradford:595,BiotekH1,0,300,10,Alex Perkins
+0.466,Bradford:595,BiotekH1,0,300,10,Alex Perkins
+0.456,Bradford:595,BiotekH1,0,300,10,Alex Perkins
+0.473,Bradford:595,BiotekH1,50,300,10,Alex Perkins
+0.468,Bradford:595,BiotekH1,50,300,10,Alex Perkins
+0.475,Bradford:595,BiotekH1,50,300,10,Alex Perkins
+0.486,Bradford:595,BiotekH1,50,300,10,Alex Perkins
+0.484,Bradford:595,BiotekH1,50,300,10,Alex Perkins
+0.511,Bradford:595,BiotekH1,75,300,10,Alex Perkins
+0.506,Bradford:595,BiotekH1,75,300,10,Alex Perkins
+0.506,Bradford:595,BiotekH1,75,300,10,Alex Perkins
+0.522,Bradford:595,BiotekH1,75,300,10,Alex Perkins
+0.514,Bradford:595,BiotekH1,75,300,10,Alex Perkins
+0.521,Bradford:595,BiotekH1,100,300,10,Alex Perkins
+0.514,Bradford:595,BiotekH1,100,300,10,Alex Perkins
+0.508,Bradford:595,BiotekH1,100,300,10,Alex Perkins
+0.534,Bradford:595,BiotekH1,100,300,10,Alex Perkins
+0.53,Bradford:595,BiotekH1,100,300,10,Alex Perkins
+0.536,Bradford:595,BiotekH1,125,300,10,Alex Perkins
+0.529,Bradford:595,BiotekH1,125,300,10,Alex Perkins
+0.515,Bradford:595,BiotekH1,125,300,10,Alex Perkins
+0.531,Bradford:595,BiotekH1,125,300,10,Alex Perkins
+0.535,Bradford:595,BiotekH1,125,300,10,Alex Perkins
+0.553,Bradford:595,BiotekH1,150,300,10,Alex Perkins
+0.556,Bradford:595,BiotekH1,150,300,10,Alex Perkins
+0.56,Bradford:595,BiotekH1,150,300,10,Alex Perkins
+0.577,Bradford:595,BiotekH1,150,300,10,Alex Perkins
+0.561,Bradford:595,BiotekH1,150,300,10,Alex Perkins
+0.568,Bradford:595,BiotekH1,175,300,10,Alex Perkins
+0.565,Bradford:595,BiotekH1,175,300,10,Alex Perkins
+0.564,Bradford:595,BiotekH1,175,300,10,Alex Perkins
+0.576,Bradford:595,BiotekH1,175,300,10,Alex Perkins
+0.578,Bradford:595,BiotekH1,175,300,10,Alex Perkins
+0.593,Bradford:595,BiotekH1,200,300,10,Alex Perkins
+0.598,Bradford:595,BiotekH1,200,300,10,Alex Perkins
+0.599,Bradford:595,BiotekH1,200,300,10,Alex Perkins
+0.644,Bradford:595,BiotekH1,200,300,10,Alex Perkins
+0.64,Bradford:595,BiotekH1,200,300,10,Alex Perkins
+2.679,Bradford:595,BiotekH1,2000,250,5,Sahan Liyanagedera
+2.752,Bradford:595,BiotekH1,2000,250,5,Sahan Liyanagedera
+2.814,Bradford:595,BiotekH1,2000,250,5,Sahan Liyanagedera
+2.85,Bradford:595,BiotekH1,2000,250,5,Sahan Liyanagedera
+2.513,Bradford:595,BiotekH1,1500,250,5,Sahan Liyanagedera
+2.552,Bradford:595,BiotekH1,1500,250,5,Sahan Liyanagedera
+2.57,Bradford:595,BiotekH1,1500,250,5,Sahan Liyanagedera
+2.503,Bradford:595,BiotekH1,1500,250,5,Sahan Liyanagedera
+1.741,Bradford:595,BiotekH1,1000,250,5,Sahan Liyanagedera
+2.047,Bradford:595,BiotekH1,1000,250,5,Sahan Liyanagedera
+2.129,Bradford:595,BiotekH1,1000,250,5,Sahan Liyanagedera
+2.044,Bradford:595,BiotekH1,1000,250,5,Sahan Liyanagedera
+1.816,Bradford:595,BiotekH1,750,250,5,Sahan Liyanagedera
+1.771,Bradford:595,BiotekH1,750,250,5,Sahan Liyanagedera
+1.68,Bradford:595,BiotekH1,750,250,5,Sahan Liyanagedera
+1.717,Bradford:595,BiotekH1,750,250,5,Sahan Liyanagedera
+1.478,Bradford:595,BiotekH1,500,250,5,Sahan Liyanagedera
+1.51,Bradford:595,BiotekH1,500,250,5,Sahan Liyanagedera
+1.484,Bradford:595,BiotekH1,500,250,5,Sahan Liyanagedera
+1.248,Bradford:595,BiotekH1,500,250,5,Sahan Liyanagedera
+1.163,Bradford:595,BiotekH1,250,250,5,Sahan Liyanagedera
+1.063,Bradford:595,BiotekH1,250,250,5,Sahan Liyanagedera
+1.058,Bradford:595,BiotekH1,250,250,5,Sahan Liyanagedera
+1.192,Bradford:595,BiotekH1,250,250,5,Sahan Liyanagedera
+0.963,Bradford:595,BiotekH1,125,250,5,Sahan Liyanagedera
+0.955,Bradford:595,BiotekH1,125,250,5,Sahan Liyanagedera
+0.983,Bradford:595,BiotekH1,125,250,5,Sahan Liyanagedera
+0.983,Bradford:595,BiotekH1,125,250,5,Sahan Liyanagedera
+0.725,Bradford:595,BiotekH1,0,250,5,Sahan Liyanagedera
+0.721,Bradford:595,BiotekH1,0,250,5,Sahan Liyanagedera
+0.721,Bradford:595,BiotekH1,0,250,5,Sahan Liyanagedera
+0.72,Bradford:595,BiotekH1,0,250,5,Sahan Liyanagedera
