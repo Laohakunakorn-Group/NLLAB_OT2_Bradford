@@ -36,8 +36,8 @@ RUN pip3 install -r /src/streamlit/installation/requirements.txt
 RUN pip3 install jupyter
 
 
-EXPOSE 2055
+EXPOSE 2061
 
 HEALTHCHECK CMD curl --fail http://localhost:2055/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=2060", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=2061", "--server.address=0.0.0.0"]
