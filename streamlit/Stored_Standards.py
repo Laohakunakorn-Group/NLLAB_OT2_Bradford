@@ -335,18 +335,18 @@ if st.session_state["data_submitted"]:
         dilution_column.metric("Mean of Absorbances:", round(np.mean(absorbance_array, axis=0),2))
 
         # store mean
-        st.session_state["Absorbance_Data_Dict"][dilution_number]["Mean"] = round(np.mean(absorbance_array, axis=0),2)
+        st.session_state["Absorbance_Data_Dict"][dilution_number]["Mean Abs"] = round(np.mean(absorbance_array, axis=0),2)
 
         # if tech reps less than 3 than can't do Standard Error
         if st.session_state["Dilution_"+str(dilution_number)+"_#techreps"] < 3:
 
             dilution_column.metric("Too few Reps to calculate Standard Error:", None)
             #  store sem
-            st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM"] = None
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM Abs"] = None
         else:
             dilution_column.metric("Standard Error of the Mean:", round(stats.sem(absorbance_array),2))
             #  store sem
-            st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM"] = round(stats.sem(absorbance_array),2)
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM Abs"] = round(stats.sem(absorbance_array),2)
 
     data_overview_expander.subheader("Summary Plots:")
 
@@ -368,7 +368,7 @@ if st.session_state["data_submitted"]:
         sns.barplot(
             data = Absorbance_Data_DF,
             x = "Dilution_Factor",
-            y = "Mean",
+            y = "Mean Abs",
             ax = ax1,
             palette = "rocket"
             )
@@ -383,10 +383,98 @@ if st.session_state["data_submitted"]:
         data_overview_expander.divider()
 
         ### heat map
-        
-
 
 
 
     
-    generate_summary_plots(st.session_state["Absorbance_Data_Dict"])
+    #generate_summary_plots(st.session_state["Absorbance_Data_Dict"])
+
+    prediction_expander = st.expander("Predicted Concentrations:", expanded=True)
+    prediction_expander.write(st.session_state)
+
+    def predict_concentrations(Absorbance_Data_Dict, model):
+
+        for dilution_number, dilution_subdict in Absorbance_Data_Dict.items():
+            
+            # convert X for model type
+            if st.session_state["Model_Type"] == "Linear":
+                abs_arr = dilution_subdict["Absorbance_Array"].reshape(-1, 1)
+
+            elif st.session_state["Model_Type"] == "Polynomial":
+
+                from sklearn.preprocessing import PolynomialFeatures
+
+                poly = PolynomialFeatures(degree=poly_features_selected, include_bias=False)
+                abs_arr = poly.fit_transform(dilution_subdict["Absorbance_Array"].reshape(-1, 1))
+            
+
+            # generate predictions
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["Uncorrected_Prediction_Array"] = np.squeeze(model.predict(abs_arr))
+
+            # Correct for dilution
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["Corrected_Prediction_Array"] = st.session_state["Absorbance_Data_Dict"][dilution_number]["Dilution_Factor"] * st.session_state["Absorbance_Data_Dict"][dilution_number]["Uncorrected_Prediction_Array"]
+
+            # Generate Mean and SEM in mg/ml
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["Mean mg/ml"] = round(np.mean(st.session_state["Absorbance_Data_Dict"][dilution_number]["Corrected_Prediction_Array"])/1000, 2)
+            st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM mg/ml"] = round(stats.sem(st.session_state["Absorbance_Data_Dict"][dilution_number]["Corrected_Prediction_Array"])/1000, 2)
+    
+    def display_results(Absorbance_Data_Dict):
+
+        # set up columns
+        cols = prediction_expander.columns(len(Absorbance_Data_Dict))
+        
+        # display metrics
+        for dilution_column, dilution_number  in zip(cols, Absorbance_Data_Dict):
+
+            dilution_column.subheader("Dilution "+str(dilution_number)+":")
+            dilution_column.metric("Mean (mg/ml)", st.session_state["Absorbance_Data_Dict"][dilution_number]["Mean mg/ml"])
+            dilution_column.metric("SEM (mg/ml)", st.session_state["Absorbance_Data_Dict"][dilution_number]["SEM mg/ml"])
+
+        # end section
+        prediction_expander.divider()
+
+        ######################################### plots
+
+        # initialise the results df
+        results_df = pd.DataFrame()
+        
+        for dilution_number, dict in Absorbance_Data_Dict.items():
+            row = pd.DataFrame(
+                pd.Series({
+                    "Dilution Factor": dict["Dilution_Factor"],
+                    "Mean mg/ml": dict["Mean mg/ml"],
+                    "SEM mg/ml": dict["SEM mg/ml"]
+                    })).T
+
+            results_df = pd.concat([results_df, row], axis=0)
+
+
+        # bar plot
+        import matplotlib.pyplot as plt
+        import seaborn as sns
+
+        # Creating a Matplotlib figure and axes
+        fig3, ax3 = plt.subplots()
+
+        # Creating a barplot using Seaborn
+        sns.barplot(
+            data = results_df,
+            x = "Dilution Factor",
+            y = "Mean mg/ml",
+#            yerr = "SEM mg/ml",
+            ax = ax3,
+            palette = "rocket"
+            )
+
+        # Setting labels and title
+        ax3.set_xlabel('Dilution Factor')
+        ax3.set_ylabel('Mean mg/ml')
+        ax3.set_title('Predicted Protein')
+
+        prediction_expander.pyplot(fig3)
+
+        prediction_expander.divider()
+
+    # call results fuctions
+    predict_concentrations(st.session_state["Absorbance_Data_Dict"], model)
+    display_results(st.session_state["Absorbance_Data_Dict"])  
