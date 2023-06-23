@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-import json
 import streamlit as st
 from streamlit_js_eval import streamlit_js_eval
 from scipy import stats
@@ -40,35 +39,44 @@ def cache_dataframe(imported_file):
 # import stored calibration data
 stored_calibration_df = read_dataframe("/src/streamlit/datasets/calibration.csv")
 
-instruments_in_calibration = list(stored_calibration_df["Instrument"].unique())
-calibration_range_ug_ml_list = list(stored_calibration_df["Sample_Concentration_ug/ml"].unique())
-bradford_volumes_list = list(stored_calibration_df["Bradford_Volume_µl"].unique())
-sample_volumes_list = list(stored_calibration_df["Sample_Volume_µl"].unique())
+# initial
+st.session_state["instruments_in_calibration"] = list(stored_calibration_df["Instrument"].unique())
+st.session_state["calibration_range_ug_ml_list"] = sorted(list(stored_calibration_df["Sample_Concentration_ug/ml"].unique()))
+st.session_state["bradford_volumes_list"] = list(stored_calibration_df["Bradford_Volume_µl"].unique())
+st.session_state["sample_volumes_list"] = list(stored_calibration_df["Sample_Volume_µl"].unique())
 
+def filter_callback():
+    st.session_state["instruments_in_calibration"] = list(calibration_df["Instrument"].unique())
+    st.session_state["calibration_range_ug_ml_list"] = sorted(list(calibration_df["Sample_Concentration_ug/ml"].unique()))
+    st.session_state["bradford_volumes_list"] = list(calibration_df["Bradford_Volume_µl"].unique())
+    st.session_state["sample_volumes_list"] = list(calibration_df["Sample_Volume_µl"].unique())
 
 
 st.sidebar.subheader("Filter Calibration Data:")
 
 plate_reader_selected = st.sidebar.selectbox(
     "Select Plate Reader",
-    instruments_in_calibration
+    st.session_state["instruments_in_calibration"],
+    on_change=filter_callback
     )
 
 bradford_volume_selected = st.sidebar.selectbox(
     "Bradford  Well Volume (µl)",
-    bradford_volumes_list
+    st.session_state["bradford_volumes_list"],
+    on_change=filter_callback
     )
 
 sample_volume_selected = st.sidebar.selectbox(
     "Sample  Well Volume (µl)",
-    sample_volumes_list
+    st.session_state["sample_volumes_list"],
+    on_change=filter_callback
     )
 
 
 calibration_range_ug_ml_selected = st.sidebar.select_slider(
     "Select Calibration Range:",
-    options = calibration_range_ug_ml_list,
-    value = [min(calibration_range_ug_ml_list), max(calibration_range_ug_ml_list)]
+    options = st.session_state["calibration_range_ug_ml_list"],
+    value = [min(st.session_state["calibration_range_ug_ml_list"]), max(st.session_state["calibration_range_ug_ml_list"])]
 )
 
 st.sidebar.subheader("Configure Model:")
@@ -162,6 +170,9 @@ calibration_df =  calibration_df[calibration_df["Sample_Concentration_ug/ml"] <=
 ## reinsert 0 ug/ml
 if not calibration_range_ug_ml_selected[0] == 0:
     calibration_df = pd.concat([blank_wells, calibration_df], ignore_index=True)
+
+# sort
+calibration_df = calibration_df.sort_values(by="Sample_Concentration_ug/ml", ascending=False)
 
 
 filtered_calibration_dataset_expander.write(calibration_df)
