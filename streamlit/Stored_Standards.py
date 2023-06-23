@@ -157,9 +157,6 @@ calibration_df = calibration_df[calibration_df["Bradford_Volume_µl"] == bradfor
 # next the sample volume
 calibration_df = calibration_df[calibration_df["Sample_Volume_µl"] == sample_volume_selected]
 
-# next the sample volume
-calibration_df = calibration_df[calibration_df["Sample_Volume_µl"] == sample_volume_selected]
-
 # calibration range
 
 ## store the 0 ug/ml
