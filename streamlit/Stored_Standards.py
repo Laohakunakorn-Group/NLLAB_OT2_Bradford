@@ -267,8 +267,8 @@ for dilution_column, dilution_number in zip(cols, range(1, st.session_state["Num
             label = "Dilution Factor:",
             min_value = 0.,
             value = 1.,
-            step = 0.01,
-            help = "Values must be two decimal places.",
+            step = 0.001,
+            help = "",
             key = ("dilution_number_" + str(dilution_number) + "_Dilution_Factor")
         )
     
@@ -281,8 +281,8 @@ for dilution_column, dilution_number in zip(cols, range(1, st.session_state["Num
             label = "Replicate #" +str(rep)+":",
             min_value = 0.,
             value = 0.,
-            step = 0.01,
-            help = "Values must be two decimal places.",
+            step = 0.001,
+            help = "Values rounded to 3 decimal places.",
             key = ("dilution_number_" + str(dilution_number) + "_rep_"+str(rep))
         )
 
