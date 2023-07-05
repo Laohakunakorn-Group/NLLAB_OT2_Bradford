@@ -38,6 +38,6 @@ RUN pip3 install jupyter
 
 EXPOSE 2060
 
-HEALTHCHECK CMD curl --fail http://localhost:2055/_stcore/health
+HEALTHCHECK CMD curl --fail http://localhost:443/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=2061", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=443", "--server.address=0.0.0.0"]
