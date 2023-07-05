@@ -36,7 +36,7 @@ RUN pip3 install -r /src/streamlit/installation/requirements.txt
 RUN pip3 install jupyter
 
 
-EXPOSE 2060
+EXPOSE 443
 
 HEALTHCHECK CMD curl --fail http://localhost:443/_stcore/health
 
