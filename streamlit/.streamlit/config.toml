@@ -1,0 +1,14 @@
+[runner]
+
+# Run the Python Garbage Collector after each script execution. This can help avoid excess memory use in Streamlit apps, but could introduce delay in rerunning the app script for high-memory-use applications.
+# Default: true
+postScriptGC = false
+
+[server]
+port=443 # change port number. By default streamlit uses 8501 port
+headless=true # This will eliminate automatically open browser
+enableStaticServing = true
+
+[browser] # This ip and port will show in command prompt
+serverAddress = "129.215.172.111" # Put your Local IP or Domain Name
+serverPort = 443
