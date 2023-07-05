@@ -36,8 +36,8 @@ RUN pip3 install -r /src/streamlit/installation/requirements.txt
 RUN pip3 install jupyter
 
 
-EXPOSE 443
+EXPOSE 8052
 
 HEALTHCHECK CMD curl --fail http://localhost:443/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=443", "--server.address=0.0.0.0"]
+ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=8052", "--server.address=0.0.0.0"]
