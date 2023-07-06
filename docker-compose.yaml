@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
 
-  automated_bradford_ot2:
+  bradford_dash:
     build: .
-    image: automated_bradford_ot2
-    container_name: automated_bradford_ot2
+    image: bradford_dash
+    container_name: bradford_dash
     ports:
       - 8052:8052
 

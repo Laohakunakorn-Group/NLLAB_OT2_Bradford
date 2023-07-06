@@ -37,7 +37,7 @@ def cache_dataframe(imported_file):
 
 
 # import stored calibration data
-stored_calibration_df = read_dataframe("/src/streamlit/datasets/calibration.csv")
+stored_calibration_df = read_dataframe("/src/datasets/calibration.csv")
 
 # initial
 st.session_state["instruments_in_calibration"] = list(stored_calibration_df["Instrument"].unique())
@@ -144,7 +144,7 @@ st.subheader("Filtered Calibration Dataset:")
 filtered_calibration_dataset_expander = st.expander("Filtered Calibration Dataset:", expanded=False)
 
 # reimport stored calibration data
-calibration_df = read_dataframe("/src/streamlit/datasets/calibration.csv")
+calibration_df = read_dataframe("/src/datasets/calibration.csv")
 
 # filter based on side bar
 

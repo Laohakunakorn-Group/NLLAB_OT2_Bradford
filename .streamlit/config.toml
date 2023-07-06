@@ -6,7 +6,15 @@ postScriptGC = false
 
 [server]
 port=8052 # change port number. By default streamlit uses 8501 port
-headless=true # This will eliminate automatically open browser
-enableStaticServing = true
+address = "0.0.0.0"
 enableCORS = false
-enableXsrfProtection = true
+enableWebsocketCompression = false
+enableXsrfProtection = false
+headless=true # This will eliminate automatically open browser
+enableStaticServing = false
+
+[global]
+developmentMode = false
+
+[browser]
+gatherUsageStats = true

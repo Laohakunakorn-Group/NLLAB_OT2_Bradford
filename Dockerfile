@@ -30,13 +30,12 @@ COPY . /src/
 
 
 # Installs the Python packages
-RUN pip3 install -r /src/streamlit/installation/requirements.txt
+RUN pip3 install -r /src/installation/requirements.txt
 
 
 EXPOSE 8052
 
 HEALTHCHECK CMD curl --fail http://localhost:443/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=8052", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableWebsocketCompression=false", "--server.enableXsrfProtection=false","--global.developmentMode=false", "--server.headless=true"]
-
-
+#ENTRYPOINT ["streamlit", "run", "/src/streamlit/Stored_Standards.py", "--server.port=8052", "--server.address=0.0.0.0", "--server.enableCORS=false", "--server.enableWebsocketCompression=false", "--server.enableXsrfProtection=false","--global.developmentMode=false", "--server.headless=true"]
+ENTRYPOINT ["streamlit", "run", "/src/Stored_Standards.py"]
