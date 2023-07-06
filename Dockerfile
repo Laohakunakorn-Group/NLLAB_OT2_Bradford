@@ -32,9 +32,6 @@ COPY . /src/
 # Installs the Python packages
 RUN pip3 install -r /src/streamlit/installation/requirements.txt
 
-# installs Jupyter
-RUN pip3 install jupyter
-
 
 EXPOSE 8052
 
