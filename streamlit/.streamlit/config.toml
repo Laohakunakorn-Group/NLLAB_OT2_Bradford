@@ -5,10 +5,8 @@
 postScriptGC = false
 
 [server]
-port=443 # change port number. By default streamlit uses 8501 port
+port=8052 # change port number. By default streamlit uses 8501 port
 headless=true # This will eliminate automatically open browser
 enableStaticServing = true
-
-[browser] # This ip and port will show in command prompt
-serverAddress = "129.215.172.111" # Put your Local IP or Domain Name
-serverPort = 443
+enableCORS = false
+enableXsrfProtection = true
