@@ -371,7 +371,6 @@ if st.session_state["data_submitted"]:
     #generate_summary_plots(st.session_state["Absorbance_Data_Dict"])
 
     prediction_expander = st.expander("Predicted Concentrations:", expanded=True)
-    prediction_expander.write(st.session_state)
 
     def predict_concentrations(Absorbance_Data_Dict, model):
 
