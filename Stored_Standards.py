@@ -275,6 +275,8 @@ for dilution_column, dilution_number in zip(cols, range(1, st.session_state["Num
     ## divider
     dilution_column.divider()
 
+    dilution_column.subheader("Enter Absorbance Values:")
+
     for rep in range(1, st.session_state["Dilution_"+str(dilution_number)+"_#techreps"]+1,1):
 
         dilution_column.number_input(
