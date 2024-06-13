@@ -6,7 +6,7 @@ from scipy import stats
 
 
 from utils.models import linear_model, linear_polynomial_model, wrangle_calibration_data
-from static.about import *
+from static.bradford_static import *
 
 
 st.set_page_config(
@@ -134,10 +134,10 @@ if st.sidebar.button("Reset"):
     # reload the webpage (and hereby re initialising the session states)
     streamlit_js_eval(js_expressions="parent.window.location.reload()")
     
-st.title("Calibration Database 🚀")
+st.title("Bradford Assay")
 
 blurb_expander = st.expander("About:", expanded=False)
-ABOUT_text(blurb_expander)
+ABOUT_BRADFORD_text(blurb_expander)
 
 st.subheader("Filtered Calibration Dataset:")
 
@@ -250,45 +250,42 @@ Sample_Input_Form = data_input_expander.form(key='Sample_Input_Form')
 Sample_Input_Form.subheader("Data Input:")
 Sample_Input_Form.write("Enter Absorbance Values for your technical replicates. Adjust the number on the sidebar:")
 
-# set up columns
-cols = Sample_Input_Form.columns(st.session_state["Number_of_Dilutions"])
+dilution_rows = st.session_state["Number_of_Dilutions"]
 
+for dilution_number in range(1, dilution_rows+1,1):
 
-for dilution_column, dilution_number in zip(cols, range(1, st.session_state["Number_of_Dilutions"]+1, 1)):
+    Sample_Input_Form.divider()
 
-    # column title
-    dilution_column.subheader("Dilution #"+str(dilution_number)+":")
+    Sample_Input_Form.subheader("Dilution #" +str(dilution_number)+":")
 
-    ## divider
-    dilution_column.divider()
+    # set up columns
+    replicates_cols = Sample_Input_Form.columns(st.session_state["Dilution_"+str(dilution_number)+"_#techreps"]+1) # +1 for dilution factor
 
-    ## Dilution Factor
-    dilution_column.number_input(
+    for rep_column, rep_number in zip(replicates_cols,range(0, st.session_state["Dilution_"+str(dilution_number)+"_#techreps"]+1,1)):
+
+        # check if first, if so then dilution factor
+        if rep_number == 0:
+            # Dilution Factor
+            rep_column.number_input(
             label = "Dilution Factor:",
             min_value = 0.,
             value = 1.,
             step = 0.001,
             help = "",
             key = ("dilution_number_" + str(dilution_number) + "_Dilution_Factor")
-        )
-    
-    ## divider
-    dilution_column.divider()
+            )
 
-    dilution_column.subheader("Enter Absorbance Values:")
-    dilution_column.write("Change the number of replicates in the sidebar.")
+        else:
+            rep_column.number_input(
+                label = "Replicate #" +str(rep_number)+":",
+                min_value = 0.,
+                value = 0.,
+                step = 0.001,
+                help = "Values rounded to 3 decimal places.",
+                key = ("dilution_number_" + str(dilution_number) + "_rep_"+str(rep_number))
+                )
 
-    for rep in range(1, st.session_state["Dilution_"+str(dilution_number)+"_#techreps"]+1,1):
-
-        dilution_column.number_input(
-            label = "Replicate #" +str(rep)+":",
-            min_value = 0.,
-            value = 0.,
-            step = 0.001,
-            help = "Values rounded to 3 decimal places.",
-            key = ("dilution_number_" + str(dilution_number) + "_rep_"+str(rep))
-        )
-
+Sample_Input_Form.divider()
 Sample_Input_Form.form_submit_button("Submit", on_click = data_input_callback)
 
 

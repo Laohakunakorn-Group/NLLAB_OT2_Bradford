@@ -37,4 +37,4 @@ EXPOSE 8052
 
 HEALTHCHECK CMD curl --fail http://localhost:443/_stcore/health
 
-ENTRYPOINT ["streamlit", "run", "/src/Stored_Standards.py"]
+ENTRYPOINT ["streamlit", "run", "/src/Home.py"]

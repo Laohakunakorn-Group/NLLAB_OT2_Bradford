@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-def ABOUT_text(blurb_expander):
+def ABOUT_BRADFORD_text(blurb_expander):
 
 
     
